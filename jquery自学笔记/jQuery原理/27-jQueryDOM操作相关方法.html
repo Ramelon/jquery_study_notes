@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>27-jQueryDOM操作相关方法</title>
+    <!--<script src="../jQuery原理/js/jquery-1.12.4.js"></script>-->
+    <script src="js/njQuery-1.4.0.js"></script>
+    <script>
+        $(function () {
+            /*
+                1.clone: 复制一个元素
+            */
+            $("button").eq(0).on("click",function () {
+                // 1.浅复制一个元素
+                var $li = $("li").clone(false);
+                console.log($li);
+                // 2.将复制的元素添加到ul中
+                $("ul").append($li);
+            });
+
+            $("button").eq(1).on("click", function () {
+                // 1.深复制一个元素
+                var $li = $("li").clone(true);
+                // 2.将复制的元素添加到ul中
+                $("ul").append($li);
+            });
+
+            /*
+            li.eventsCache = {
+                click: [];
+            };
+            */
+            $("li").on("click", function () {
+                alert($(this).html());
+            });
+
+            var li = document.querySelector("li");
+            li.onclick = function (ev) {
+                alert(123);
+            }
+            var temp = JSON.parse(JSON.stringify(li));
+            var ul = document.querySelector("ul");
+            ul.appendChild(temp);
+        });
+    </script>
+</head>
+<body>
+<button>浅复制节点</button>
+<button>深复制节点</button>
+<ul>
+    <li>我是第1个li</li>
+    <li>我是第2个li</li>
+</ul>
+</body>
+</html>

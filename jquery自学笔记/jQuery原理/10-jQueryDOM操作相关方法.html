@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>10-jQueryDOM操作相关方法</title>
+    <!--<script src="js/jquery-1.12.4.js"></script>-->
+    <script src="js/njQuery-1.2.0.js"></script>
+    <script>
+        $(function () {
+            /*
+             DOM 操作:
+             7、元素.prependTo.指定元素 ==> 将元素添加到指定元素内部的最前面
+             */
+            var btn = document.getElementsByTagName("button")[0];
+            btn.onclick = function () {
+                // 接收一个字符串 $(".item"); ==> jQuery
+                $("p").prependTo(".item");
+
+                // 接收一个jQuery对象  $($("div")); ==> jQuery
+                // $("p").prependTo($("div"));
+
+                // 接收一个DOM元素 $(divs);  ==> jQuery
+                // var divs = document.querySelectorAll("div");
+                // $("p").prependTo(divs);
+
+                // console.log($("p").prependTo(".item"));
+            }
+            function prependTo(source, target) {
+                /*
+                调用者.insertBefore(插入的元素, 参考的元素);
+                insertBefore方法, 调用者是谁就会将元素插入到谁里面
+                */
+                target.insertBefore(source, target.firstChild);
+            }
+            var p = document.querySelector("p");
+            var div = document.querySelector("div");
+            // prependTo(p, div);
+        });
+    </script>
+</head>
+<body>
+<button>调用prependTo</button>
+<p>我是段落</p>
+<p>我是段落</p>
+<div class="item">
+    <li>1我是第1个li</li>
+    <li>1我是第2个li</li>
+    <li>1我是第3个li</li>
+</div>
+<div class="item">
+    <li>1我是第1个li</li>
+    <li>1我是第2个li</li>
+    <li>1我是第3个li</li>
+</div>
+</body>
+</html>

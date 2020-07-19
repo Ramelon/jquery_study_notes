@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>20-jQuery属性操作相关方法</title>
+    <!--<script src="../jQuery原理/js/jquery-1.12.4.js"></script>-->
+    <script src="js/njQuery-1.3.0.js"></script>
+    <script>
+        $(function () {
+            /*
+                6.addClass(): 给元素添加一个或多个指定的类
+            */
+
+            // 传递参数, 如果元素中没有指定类就添加, 有就不添加
+            // 会返回this方便链式编程
+            // console.log($("div").addClass("abc"));
+            // console.log($("div").addClass("abc def"));
+
+            // 没有传递参数,不做任何操作,返回this
+            console.log($("div").addClass());
+
+            // "aabb" + " " + "abc" = "aabb abc"
+        });
+    </script>
+</head>
+<body>
+<div class="aabb abc"></div>
+<div class="aabb"></div>
+</body>
+</html>

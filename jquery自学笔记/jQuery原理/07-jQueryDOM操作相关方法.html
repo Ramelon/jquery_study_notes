@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>07-jQueryDOM操作相关方法</title>
+    <!--<script src="js/jquery-1.12.4.js"></script>-->
+    <script src="js/njQuery-1.2.0.js"></script>
+    <script>
+        $(function () {
+            /*
+             DOM 操作:
+             1、empty ==> 清空指定元素中的所有内容
+             2、remove ==> 删除所有的元素或指定元素
+             */
+            var btn = document.getElementsByTagName("button")[0];
+            btn.onclick = function () {
+                // $("div").empty();
+                // console.log($("div").empty());
+
+                // $("div").remove();
+                // console.log($("div").remove());
+                $("div").remove(".box");
+            }
+        });
+    </script>
+</head>
+<body>
+<button>调用remove</button>
+<div>
+    我是div
+    <p>我是段落</p>
+</div>
+<div class="box">
+    我是div
+    <p>我是段落</p>
+</div>
+<p class="box"></p>
+</body>
+</html>

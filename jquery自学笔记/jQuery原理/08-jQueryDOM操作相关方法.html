@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>08-jQueryDOM操作相关方法</title>
+    <!--<script src="js/jquery-1.12.4.js"></script>-->
+    <script src="js/njQuery-1.2.0.js"></script>
+    <script>
+        $(function () {
+            /*
+             DOM 操作:
+             3、html ==> 设置所有元素的内容，获取第一个元素的内容
+             4、text ==> 设置所有元素的文本内容，获取所有元素的文本内容
+             */
+            var btn = document.getElementsByTagName("button")[0];
+            btn.onclick = function () {
+                var $div = $("div");
+                // console.log($div.html());
+                // $div.html("123");
+                // $div.html("<div><span>我是span</span></div>");
+
+                // console.log($div.text());
+                // $div.text("123");
+                $div.text("<div><span>我是span</span></div>");
+
+                // console.log($div.get(0).innerText);
+            }
+        });
+    </script>
+</head>
+<body>
+<button>调用text</button>
+<div>
+    我是div1
+    <p>我是段落1</p>
+</div>
+<div class="box">
+    我是div2
+    <p>我是段落2</p>
+</div>
+</body>
+</html>

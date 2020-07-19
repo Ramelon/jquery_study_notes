@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>15-jquery属性和属性值</title>
+    <script src="../js/jquery-1.12.4.js"></script>
+    <script>
+        /*
+            1.attr(name|properties|key,value|fn)
+            作用：获取或者设置属性节点的值
+            可以传递一个参数，也可以传递两个参数
+            如果传递一个参数，代表获取属性节点的值
+            如果传递两个参数，代表设置属性节点的值
+        
+            注意点
+            获取:无论找到多少个元素，都只会返回第一个元素指定的属性节点的值
+            设置:找到多少个元素就会设置多少个元素
+                 如果设置的属性节点不存在，那么系统会自动新增
+
+            2.removeAttr(name)
+            从每一个匹配的元素中删除一个属性(所有匹配)
+            注意点:1.6以下版本在IE6使用JQuery的removeAttr方法删除disabled是无效的。解决的方法就是使用$("XX").prop("disabled",false);
+            1.7版本在IE6下已支持删除disabled。
+            jquery 同时删除元素标签的多个属性，必须使用1.7或以上的版本才能实现，两个要删除的属性中间必须用空格隔开(同removeClass()删除多个class值格式写法一样)/p>
+        */
+        $(function(){
+            // console.log($("span").attr("class"));
+            // $("span").attr("class","box");
+            // $("span").attr("acc","123");
+            // $("span").removeAttr("class");
+            $("span").removeAttr("class name");
+        });
+    </script>
+</head>
+<body>
+    <span class="span1" name="it666"></span>
+    <span class="span2" name="rar"></span>
+</body>
+</html>

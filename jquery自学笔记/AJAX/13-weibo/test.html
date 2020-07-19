@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+    <script>
+        // var str = '{error: 0, id: 1, time: 1526541587, acc: 0, ref: 0}';
+        var str = '{"error": "0", "id": "1", "time": "1526541587", "acc": "0", "ref": "0"}';
+        // var obj = JSON.parse(str);
+        // console.log(obj);
+        var obj = eval("("+str+")");
+        console.log(obj);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

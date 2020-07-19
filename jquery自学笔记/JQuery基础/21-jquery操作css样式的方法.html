@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>21-jquery操作css样式的方法</title>
+    <script src="../js/jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+            // 1.逐个设置
+            $("div").css("width","100px");
+            $("div").css("height","100px");
+            $("div").css("background","red");
+
+            // 2.链式设置
+            $("div").css("width","100px").css("height","100px").css("background","blue");
+            
+            // 3.批量设置
+            $("div").css({
+                width: "100px",
+                height: "100px",
+                background: "green"
+            })
+
+            // 4.获取css样式
+            console.log($("div").css("width"));
+        });
+    </script>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

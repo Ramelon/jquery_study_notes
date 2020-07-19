@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>03-apply和call方法</title>
+    <script>
+        /*
+        apply和call方法的作用:
+        专门用于修改方法内部的this
+
+        格式:
+        call(对象, 参数1, 参数2, ...);
+        apply(对象, [数组]);
+        */
+        function test() {
+            console.log(this);
+        }
+        // window.test();
+        var obj = {"name": "lnj2"};
+        /*
+        1.通过window.test找到test方法
+        2.通过apply(obj)将找到的test方法内部的this修改为自定义的对象
+        */
+        // window.test.apply(obj);
+        // window.test.call(obj);
+
+        function sum(a, b) {
+            console.log(this);
+            console.log(a + b);
+        }
+        // window.sum.call(obj, 1, 2);
+        /*
+        1.通过window.sum找到sum方法
+        2.通过apply(obj)将找到的sum方法内部的this修改为自定义的对象
+        3.将传入数组中的元素依次取出, 传递给形参
+        */
+        // window.sum.apply(obj, [3, 5]);
+
+        // var arr = [];
+        // arr.push(1);
+        // console.log(arr);
+
+        // 真数组转换伪数组的一个过程
+        // var arr = [1, 3, 5, 7, 9];
+        // var obj = {};
+        /*
+        1.通过[].push找到数组中的push方法
+        2.通过apply(obj)将找到的push方法内部的this修改为自定义的对象
+        3.将传入数组中的元素依次取出, 传递给形参
+        */
+        // [].push.apply(obj, arr);
+        // console.log(obj);
+        window.onload = function (ev) {
+            // 系统自带的伪数组
+            var res = document.querySelectorAll("div");
+            // 自定义的伪数组
+            var obj = {0:"lnj", 1:"33", length: 2};
+            // var arr = []; // 真数组
+            // [].push.apply(arr, obj);
+            // console.log(arr);
+
+            // 如果想将伪数组转换为真数组那么可以使用如下方法
+            var arr = [].slice.call(obj);
+            console.log(arr);
+            // var arr2 = [1, 3, 5, 7, 9];
+            // 如果slice方法什么参数都没有传递, 会将数组中的元素放到一个新的数组中原样返回
+            // var res2 = arr2.slice();
+            // var res2 = arr2.slice(2);
+            // var res2 = arr2.slice(2, 4);
+            // console.log(res2);
+        }
+    </script>
+</head>
+<body>
+<div>我是div</div>
+<div>我是div</div>
+<div>我是div</div>
+</body>
+</html>

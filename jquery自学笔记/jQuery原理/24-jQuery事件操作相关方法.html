@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>24-jQuery事件操作相关方法</title>
+    <!--<script src="../jQuery原理/js/jquery-1.12.4.js"></script>-->
+    <script src="js/njQuery-1.4.0.js"></script>
+    <script>
+        $(function () {
+            /*
+                1.on(type, callback): 注册事件
+                2.off(type, callback): 移出事件
+            */
+            /*
+            1.注册多个相同类型事件, 后注册的不会覆盖先注册的
+            2.注册多个不同类型事件, 后注册的不会覆盖先注册的
+            */
+
+            // $("button").on("click", function () {
+            //     alert("hello click1");
+            // });
+            //
+            // $("button").on("click", function () {
+            //     alert("hello click2");
+            // });
+
+            // $("button").on("mouseenter", function () {
+            //     alert("hello mouseenter");
+            // });
+            //
+            // $("button").on("mouseleave", function () {
+            //     alert("hello mouseleave");
+            // });
+
+            var btn = document.querySelector("button");
+            function addEvent(dom, name, callBack) {
+                // btn, "click", test1
+                // btn, "click", test2
+                // btn, "mouseenter", test3
+                // btn, "mouseleave", test4
+                if(!dom.eventsCache){
+                    dom.eventsCache = {}; //btn.eventsCache = {}
+                }
+                if(!dom.eventsCache[name]){
+                    /*
+                    btn.eventsCache = {
+                        click: [test1, test2],
+                        mouseenter: [test3],
+                        mouseleave: [test4]
+                    }
+                    */
+                    dom.eventsCache[name] = [];
+                    dom.eventsCache[name].push(callBack);
+                    if(dom.addEventListener){
+                        // 1. click  3.mouseenter 4.mouseleave
+                        dom.addEventListener(name, function () {
+                            for(var i = 0; i < dom.eventsCache[name].length; i++){
+                                dom.eventsCache[name][i]();
+                            }
+                        });
+                    }else{
+                        dom.attachEvent("on"+name, function () {
+                            for(var i = 0; i < dom.eventsCache[name].length; i++){
+                                dom.eventsCache[name][i]();
+                            }
+                        });
+                    }
+                }else{
+                    dom.eventsCache[name].push(callBack);
+                }
+            }
+            function test1(){
+                alert("click1");
+            }
+            function test2(){
+                alert("click2");
+            }
+            function test3(){
+                alert("mouseenter");
+            }
+            function test4(){
+                alert("mouseleave");
+            }
+            // btn.eventsCache = [test1, test2];
+            addEvent(btn, "click", test1);
+            addEvent(btn, "click", test2);
+            addEvent(btn, "mouseenter", test3);
+            addEvent(btn, "mouseleave", test4);
+        });
+    </script>
+</head>
+<body>
+<button>我是按钮1</button>
+<button>我是按钮2</button>
+</body>
+</html>

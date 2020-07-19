@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>11-jquery其他静态方法</title>
+    <script src="../js/jquery-1.12.4.js"></script>
+    <script>
+        var str = "Ramelon";
+        console.log("---" + str + "---");
+        // 取出字符串两端的空格，并返回一个去除空格的新字符串
+        console.log("---" + $.trim(str) + "---");
+        
+
+        // 数组
+        var arr = [1,3,5,7,9];
+        // 伪数组
+        var arrlike = {0:1, 1:3, 2:5, 3:7, 4:9, length:5};  
+        // 对象
+        var obj = {"name": "Ramelon", "age":32};
+        // 函数
+        var fn = function(){};
+        // window对象
+        var w = window;
+        /*
+        判断传入的对象是否为window对象
+        */
+        var res = $.isWindow(w);
+        console.log(res);
+        
+        /*
+        判断是否为数组
+        */
+        var res2 = $.isArray();
+        console.log(res2);
+        
+        /*
+        判断是否为方法
+        $.isFunction();返回为true
+        */
+        var res3 = $.isFunction();
+        console.log(res3);
+        
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

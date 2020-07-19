@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>05-jQuery监听DOM加载</title>
+    <script src="js/njQuery-1.0.0.js"></script>
+    <script>
+        /*
+        onload事件会等到DOM元素加载完毕, 并且还会等到资源也加载完毕才会执行
+        DOMContentLoaded事件只会等到DOM元素加载完毕就会执行回调
+        */
+        /*
+        window.onload = function (ev) {
+            // var res = document.querySelectorAll("div");
+            // console.log(res);
+            console.log("onload");
+        }
+        document.addEventListener("DOMContentLoaded", function () {
+            // var res = document.querySelectorAll("div");
+            // console.log(res);
+            console.log("DOMContentLoaded");
+        });
+        */
+        /*
+        document.readyState属性有如下的状态
+        uninitialized - 还未开始载入
+        loading - 载入中
+        interactive - 已加载，文档与用户可以开始交互
+        complete - 载入完成
+
+        onreadystatechange事件就是专门用于监听document.readyState属性的改变的
+        */
+        /*
+        document.attachEvent("onreadystatechange", function () {
+            if(document.readyState == "complete"){
+                console.log("onreadystatechange");
+            }
+        });
+        */
+        $(function () {
+            var res = document.querySelectorAll("div");
+            console.log(res);
+        });
+    </script>
+
+</head>
+<body>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+</body>
+</html>

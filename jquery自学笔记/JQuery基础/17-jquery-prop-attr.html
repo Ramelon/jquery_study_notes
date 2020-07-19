@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>17-jquery-prop-attr</title>
+    <script src="../js/jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+            $("button").click(function(){
+                var $url = $("input").val();
+                console.log($url);
+                
+                $("img").attr("src",$url);
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="text" name="" id="">
+    <button>切换图片</button><br>
+    <img src="https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png" alt="">
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>04-jQuery的extend方法</title>
+    <script>
+        function njQuery() {
+
+        }
+        /*
+        njQuery.extend = function (obj) {
+            // 此时此刻的this就是njQuery这个类
+            // console.log(this);
+            for(var key in obj){
+                // njQuery["isTest"] = function () {console.log("test");}
+                this[key] = obj[key];
+            }
+        }
+        njQuery.extend({
+            isTest: function () {
+                console.log("test");
+            }
+        });
+        njQuery.isTest();
+        */
+        /*
+        njQuery.prototype.extend = function (obj) {
+            // 此时此刻的this是njQuery对象
+            // console.log(this);
+            for(var key in obj){
+                // q["isDemo"] = function () {console.log("demo");}
+                this[key] = obj[key];
+            }
+        }
+        var q = new njQuery();
+        q.extend({
+            isDemo: function () {
+                console.log("demo");
+            }
+        });
+        q.isDemo();
+        */
+
+        njQuery.extend = njQuery.prototype.extend = function (obj) {
+            // console.log(this);
+            for(var key in obj){
+                this[key] = obj[key];
+            }
+        }
+        // njQuery.extend({});
+        var q = new njQuery();
+        q.extend({});
+    </script>
+</head>
+<body>
+
+</body>
+</html>

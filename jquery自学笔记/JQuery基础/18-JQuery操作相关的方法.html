@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JQuery操作相关的方法</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .class1{
+            width: 100px;
+            height: 100px;
+            background:lightcoral;
+        }
+        .class2{
+            border: 10px solid #000;
+        }
+    </style>
+    <script src="../js/jquery-1.12.4.js"></script>
+    <script>
+        /*
+            1.attr(name|properties|key,value|fn)
+            获取匹配的元素集合中的第一个元素的属性的值 或 设置每一个匹配元素的一个或多个属性。
+            2.removeClass([class|fn])
+            从所有匹配的元素中删除全部或者指定的类。
+            3.toggleClass(class|fn[,sw])
+            如果存在（不存在）就删除（添加）一个类。
+        */
+        $(function(){
+            var $btn = $("button");
+            $btn.eq(0).click(function(){
+                $("div").addClass("class1 class2");
+            });
+            
+            $btn.eq(1).click(function(){
+                $("div").removeClass("class1 class2");
+            });
+
+            $btn.eq(2).click(function(){
+                $("div").toggleClass("class1");
+            });
+        });
+    </script>
+</head>
+<body>
+    <button>添加类</button>
+    <button>删除类</button>
+    <button>切换类</button>
+    <div></div>
+</body>
+</html>

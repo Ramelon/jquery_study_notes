@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>13-jQueryDOM操作相关方法</title>
+    <!--<script src="js/jquery-1.12.4.js"></script>-->
+    <script src="js/njQuery-1.2.0.js"></script>
+    <script>
+        $(function () {
+            /*
+             DOM 操作:
+             元素.insertBefore.指定元素  ==>将元素添加到指定元素外部的前面
+             */
+            var btn = document.getElementsByTagName("button")[0];
+            btn.onclick = function () {
+                // 接收一个字符串 $(".item"); ==> jQuery
+                // $("p").prependTo(".item");
+                $("p").insertBefore(".item");
+
+                // 接收一个jQuery对象  $($("div")); ==> jQuery
+                // $("p").insertBefore($("div"));
+
+                // 接收一个DOM元素 $(divs);  ==> jQuery
+                // var divs = document.querySelectorAll("div");
+                // $("p").insertBefore(divs);
+
+                // console.log($("p").insertBefore(".item"));
+            }
+            function insertBefore(source, target) {
+                /*
+                调用者.insertBefore(插入的元素, 参考的元素);
+                insertBefore方法, 调用者是谁就会将元素插入到谁里面
+                */
+                // 1.拿到指定元素的父元素
+                var parent = target.parentNode;
+                // 2.利用指定元素的父元素来调用insertBefore方法
+                parent.insertBefore(source, target);
+            }
+            var p = document.querySelector("p");
+            var div = document.querySelector("div");
+            // insertBefore(p, div);
+        });
+    </script>
+</head>
+<body>
+<button>调用insertBefore</button>
+<div class="item">
+    <p>我是段落</p>
+    <li>1我是第1个li</li>
+    <li>1我是第2个li</li>
+    <li>1我是第3个li</li>
+</div>
+</body>
+</html>

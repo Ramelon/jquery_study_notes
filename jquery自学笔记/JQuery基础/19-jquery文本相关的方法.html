@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>19-jquery文本相关的方法</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            border: solid 1px #000;
+        }
+    </style>
+    <script src="../js/jquery-1.12.4.js"></script>
+    <script>
+        /*
+            1.html([val|fn])
+            取得第一个匹配元素的html内容。这个函数不能用于XML文档。但可以用于XHTML文档。
+            2.text([val|fn])
+            结果是由所有匹配元素包含的文本内容组合起来的文本。这个方法对HTML和XML文档都有效。
+            3.val([val|fn|arr])
+            获得匹配元素的当前值。
+        */
+        $(function(){
+            var $btn = $("button");
+            $btn.eq(0).click(function(){
+                $("div").html("<p>我是段落<span>我是span</span></p>");
+            });
+            
+            $btn.eq(1).click(function(){
+                console.log($("div").html());
+            });
+
+            $btn.eq(2).click(function(){
+                $("div").text("<p>我是段落<span>我是span</span></p>");
+            });
+
+            $btn.eq(3).click(function(){
+                console.log($("div").text());
+            });
+
+            $btn.eq(4).click(function(){
+                $("input").val("请输入内容");
+            });
+
+            $btn.eq(5).click(function(){
+                console.log($("input").val());
+            });
+        });
+    </script>
+</head>
+<body>
+    <button>设置html</button>
+    <button>获取html</button>
+    <button>设置text</button>
+    <button>获取text</button>
+    <button>设置val</button>
+    <button>获取val</button>
+    <div></div>
+    <input type="text" name="" id="">
+</body>
+</html>

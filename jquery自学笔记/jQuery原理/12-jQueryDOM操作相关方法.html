@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>12-jQueryDOM操作相关方法</title>
+    <!--<script src="js/jquery-1.12.4.js"></script>-->
+    <script src="js/njQuery-1.2.0.js"></script>
+    <script>
+        $(function () {
+            /*
+             DOM 操作:
+             8、指定元素.prepend.元素 ==> 将元素添加到指定元素内部的最前面
+             */
+            var btn = document.getElementsByTagName("button")[0];
+            btn.onclick = function () {
+                // 接收一个字符串
+                // $("p").prependTo(".item");
+                // $(".item").prepend("p");
+                // $(".item").prepend("<span>我是span</span>");
+                console.log($(".item").prepend("p"));
+
+                // 接收一个jQuery对象  $($("div")); ==> jQuery
+                // $("div").prepend($("p"));
+
+                // 接收一个DOM元素 $(divs);  ==> jQuery
+                // var divs = document.querySelectorAll("div");
+                // var ps = document.querySelectorAll("p");
+                // $(divs).prepend(ps);
+            }
+        });
+    </script>
+</head>
+<body>
+<button>调用prepend</button>
+<p>我是段落</p>
+<div class="item">
+    <li>1我是第1个li</li>
+    <li>1我是第2个li</li>
+    <li>1我是第3个li</li>
+</div>
+</body>
+</html>

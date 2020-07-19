@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>22-jquery位置尺寸操作方法</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .father{
+            width: 200px;
+            height: 200px;
+            background: red;
+            border: solid 50px #000;
+            margin-left: 50px;
+            position: relative;
+        }
+        .son{
+            width: 100px;
+            height: 100px;
+            background: blue; 
+            left: 50px;
+            top: 50px;
+            position: absolute;
+        }
+    </style>
+    <script src="../js/jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+            var $btn = $("button");
+            $btn.eq(0).click(function(){
+                console.log($(".father").width());
+                // 1.offset([coordinates])
+                // 用于设置或返回当前匹配元素相对于当前文档的偏移，也就是相对于当前文档的坐标。该函数值对可见元素有效。
+                // 获取元素距离窗口的偏移位
+                console.log($(".son").offset().left);
+                // position()
+                // 获取元素距离定位元素的偏移位
+                // 获取匹配元素相对父元素的偏移。
+                console.log($(".son").position().left);
+
+                console.log($(".father").innerHeight());
+                
+                
+            }); 
+            
+            $btn.eq(1).click(function(){
+                $(".father").width("500px");
+                $(".son").offset({
+                    left: 10
+                });
+                // position方法只能获取不能设置
+                // $(".son").position({
+                //     left: 10
+                // });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    <button>获取</button>
+    <button>设置</button>
+</body>
+</html>

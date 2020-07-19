@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>09-jQueryDOM操作相关方法</title>
+    <!--<script src="js/jquery-1.12.4.js"></script>-->
+    <script src="js/njQuery-1.2.0.js"></script>
+    <script>
+        $(function () {
+            /*
+             DOM 操作:
+             5、元素.appendTo.指定元素 ==> 将元素添加到指定元素内部的最后
+             */
+            var btn = document.getElementsByTagName("button")[0];
+            btn.onclick = function () {
+                /*
+                特点:
+                1.如果指定元素有多个,会将元素拷贝多份添加到指定元素中
+                2.给appendTo方法传递字符串, 会根据字符串找到所有对应元素后再添加
+                3.给appendTo方法传递jQuery对象,会将元素添加到jQuery对象保存的所有指定元素中
+                4.给appendTo方法传递DOM元素, 会将元素添加到所有指定DOM元素中
+                */
+                // 接收一个字符串 $(".item"); ==> jQuery
+                // $("p").appendTo(".item");
+
+                // 接收一个jQuery对象  $($("div")); ==> jQuery
+                // $("p").appendTo($("div"));
+
+                // 接收一个DOM元素 $(divs);  ==> jQuery
+                // var divs = document.querySelectorAll("div");
+                // $("p").appendTo(divs);
+
+                console.log($("p").appendTo(".item"));
+            }
+            function appendTo(source, target) {
+                // target.appendChild(source);
+                // 1.遍历取出所有指定的元素
+                for(var i = 0; i < target.length; i++){
+                    var targetEle = target[i];
+                    // 2.遍历取出所有的元素
+                    for(var j = 0; j < source.length; j++){
+                        var sourceEle = source[j];
+
+                        // 3.判断当前是否是第0个指定的元素
+                        if(i === 0){
+                            // 直接添加
+                            targetEle.appendChild(sourceEle);
+                        }else{
+                            // 先拷贝再添加
+                            var temp = sourceEle.cloneNode(true);
+                            targetEle.appendChild(temp);
+                        }
+                    }
+                }
+            }
+            // var p = document.querySelector("p");
+            // var ps = document.querySelectorAll("p");
+            // var div = document.querySelector("div");
+            // var divs = document.querySelectorAll("div");
+            // appendTo(ps, divs);
+
+            // console.log(p.cloneNode(true));
+            // console.log(p.cloneNode(false));
+        });
+    </script>
+</head>
+<body>
+<button>调用appendTo</button>
+<p>我是段落</p>
+<p>我是段落</p>
+<div class="item">
+    <li>1我是第1个li</li>
+    <li>1我是第2个li</li>
+    <li>1我是第3个li</li>
+</div>
+<div class="item">
+    <li>1我是第1个li</li>
+    <li>1我是第2个li</li>
+    <li>1我是第3个li</li>
+</div>
+</body>
+</html>

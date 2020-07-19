@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>10-jquery静态方法map方法</title>
+    <script src="../js/jquery-1.12.4.js"></script>
+    <script>
+        var arr = [1,3,5,7,9];
+        var obj = {0:1, 1:3, 2:5, 3:7, 4:9, length:5};  
+        // 参数1：value，参数2：index，参数3：array
+        // 不能遍历伪数组
+        arr.map(function(value, index, array){
+            console.log(index, value, array);
+        });
+
+        // obj.map(function(value, index, array){
+        //     console.log(index, value, array);
+        // });
+
+        var res = $.map(obj,function(index, value){
+            console.log(index, value);
+            return index + value;
+        });
+
+        var res2 = $.each(obj, function(index,value){
+            console.log(index,value);
+        });
+
+        console.log(res);
+        console.log(res2);
+        
+        
+        // jquery中的each静态方法和map静态方法的区别:
+        // each默认静态方法返回值就是遍历谁返回谁
+        // map静态方法默认返回一个空数组，但是可以return.
+        // each静态方法不支持在回调函数中对遍历的数组进行遍历
+        // mao静态方法可以在回调函数中通过return对遍历数组进行处理
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

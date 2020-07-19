@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>11-jQueryDOM操作相关方法</title>
+    <!--<script src="js/jquery-1.12.4.js"></script>-->
+    <script src="js/njQuery-1.2.0.js"></script>
+    <script>
+        $(function () {
+            /*
+             DOM 操作:
+             6、指定元素.append.元素 ==> 将元素添加到指定元素内部的最后
+             */
+            var btn = document.getElementsByTagName("button")[0];
+            btn.onclick = function () {
+                // 接收一个字符串
+                // $("p").appendTo(".item");
+                $(".item").append("p");
+                // $(".item").append("<span>我是span</span>");
+                // console.log($(".item").append("p"));
+
+                // 接收一个jQuery对象  $($("div")); ==> jQuery
+                // $("div").append($("p"));
+
+                // 接收一个DOM元素 $(divs);  ==> jQuery
+                // var divs = document.querySelectorAll("div");
+                // var ps = document.querySelectorAll("p");
+                // $(divs).append(ps);
+            }
+        });
+    </script>
+</head>
+<body>
+<button>调用append</button>
+<p>我是段落</p>
+<p>我是段落</p>
+<div class="item">
+    <li>1我是第1个li</li>
+    <li>1我是第2个li</li>
+    <li>1我是第3个li</li>
+</div>
+<div class="item">
+    <li>1我是第1个li</li>
+    <li>1我是第2个li</li>
+    <li>1我是第3个li</li>
+</div>
+</body>
+</html>

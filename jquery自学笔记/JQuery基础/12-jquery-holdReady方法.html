@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>12-jquery-holdReady方法</title>
+    <script src="../js/jquery-1.12.4.js"></script>
+    <script>
+        // 暂停ready执行
+        $.holdReady(true);
+
+         $(document).ready(function(){
+            alert("ready");
+         });
+    </script>
+</head>
+<body>
+    <button>回复ready事件</button>
+    <script>
+        var btn = document.getElementsByTagName("button")[0];
+        btn.onclick = function(){
+            // 恢复ready执行
+            $.holdReady(false);
+        }
+    </script>
+</body>
+</html>
